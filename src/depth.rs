@@ -1,3 +1,7 @@
+use crate::{
+    utils
+};
+
 fn num_increases(depths: Vec<i64>) -> i64 {
     let mut previous_depth = f64::INFINITY as i64;
     let mut increase_count = 0;
