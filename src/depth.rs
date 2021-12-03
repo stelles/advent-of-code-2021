@@ -1,18 +1,3 @@
-use std::{
-    fs::File,
-    io::{prelude::*, BufReader},
-    path::Path,
-};
-
-
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
-    let file = File::open(filename).expect("No such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|l| l.expect("Could not parse line"))
-        .collect()
-}
-
 fn num_increases(depths: Vec<i64>) -> i64 {
     let mut previous_depth = f64::INFINITY as i64;
     let mut increase_count = 0;
@@ -36,7 +21,7 @@ fn sum_three(depths: Vec<i64>) -> Vec<i64> {
 }
 
 pub fn count_depth() {
-    let lines = lines_from_file("data/day1");
+    let lines = utils::lines_from_file("data/day1");
 
     let depths = lines.iter().map(|l| l.parse::<i64>().expect("Cannot parse int")).collect();
     

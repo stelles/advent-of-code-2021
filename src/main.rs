@@ -1,17 +1,8 @@
-use std::{
-    fs::File,
-    io::{prelude::*, BufReader},
-    path::Path,
-};
 
+// use depth;
 
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
-    let file = File::open(filename).expect("No such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|l| l.expect("Could not parse line"))
-        .collect()
-}
+// mod utils;
+// use depth;
 
 fn num_increases(depths: Vec<i64>) -> i64 {
     let mut previous_depth = f64::INFINITY as i64;
@@ -36,7 +27,7 @@ fn sum_three(depths: Vec<i64>) -> Vec<i64> {
 }
 
 fn count_depth() {
-    let lines = lines_from_file("data/day1");
+    let lines = utils::lines_from_file("data/day1");
 
     let depths = lines.iter().map(|l| l.parse::<i64>().expect("Cannot parse int")).collect();
     
@@ -48,7 +39,7 @@ fn count_depth() {
 }
 
 fn movement() {
-    let moves = lines_from_file("data/day2");
+    let moves = utils::lines_from_file("data/day2");
 
     let mut depth = 0;
     let mut aim = 0;
